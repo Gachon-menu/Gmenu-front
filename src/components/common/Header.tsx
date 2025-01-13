@@ -1,8 +1,7 @@
 import { Link } from "react-router-dom";
 import styled from "styled-components";
 import logo from "../../assets/img/gachonLogo.png";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faBars } from "@fortawesome/free-solid-svg-icons";
+import ToggleMenu from "../ToggleMenu";
 
 const Header = () => {
   return (
@@ -24,8 +23,7 @@ const Header = () => {
           <Link to="/vision">비전타워 1층 메뉴</Link>
         </HeaderMenuItem>
       </HeaderMenuWrapper>
-      {/* 메뉴 아이콘 */}
-      <MenuIcon icon={faBars} />
+      <ToggleMenu />
     </HeaderWrapper>
   );
 };
@@ -50,7 +48,7 @@ const HeaderMenuWrapper = styled.div`
   align-items: center;
 
   /* 작은 화면에서는 숨김 */
-  @media (max-width: 1000px) {
+  @media (max-width: 950px) {
     display: none;
   }
 `;
@@ -68,19 +66,6 @@ const HeaderMenuItem = styled.div`
       text-decoration: underline;
       text-underline-offset: 5px;
     }
-  }
-`;
-
-const MenuIcon = styled(FontAwesomeIcon)`
-  font-size: 1.5rem;
-  cursor: pointer;
-
-  /* 큰 화면에서는 숨기되, 공간은 차지하도록 설정 */
-  visibility: hidden;
-
-  /* 작은 화면에서는 보이게 */
-  @media (max-width: 1000px) {
-    visibility: visible;
   }
 `;
 
