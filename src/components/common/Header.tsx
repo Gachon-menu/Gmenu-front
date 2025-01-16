@@ -1,9 +1,10 @@
 import { Link } from "react-router-dom";
 import styled from "styled-components";
 import logo from "../../assets/img/gachonLogo.png";
-import ToggleMenu from "../ToggleMenu";
+import ToggleMenu from "../modal/ToggleMenu";
 
 const Header = () => {
+  const maxWidth = 1100;
   return (
     <HeaderWrapper>
       <HeaderLogo>
@@ -12,7 +13,7 @@ const Header = () => {
         </Link>
       </HeaderLogo>
       {/* 메뉴 아이템 */}
-      <HeaderMenuWrapper>
+      <HeaderMenuWrapper maxWidth={maxWidth}>
         <HeaderMenuItem>
           <Link to="/dormitory">제3생활관(AI관 옆) 메뉴</Link>
         </HeaderMenuItem>
@@ -22,8 +23,11 @@ const Header = () => {
         <HeaderMenuItem>
           <Link to="/vision">비전타워 1층 메뉴</Link>
         </HeaderMenuItem>
+        <HeaderMenuItem>
+          <Link to="/medical">체육관(메디컬) 메뉴</Link>
+        </HeaderMenuItem>
       </HeaderMenuWrapper>
-      <ToggleMenu />
+      <ToggleMenu maxWidth={maxWidth} />
     </HeaderWrapper>
   );
 };
@@ -42,19 +46,19 @@ const HeaderLogo = styled.div`
   }
 `;
 
-const HeaderMenuWrapper = styled.div`
+const HeaderMenuWrapper = styled.div<{ maxWidth: number }>`
   display: flex;
   justify-content: center;
   align-items: center;
 
   /* 작은 화면에서는 숨김 */
-  @media (max-width: 950px) {
+  @media (max-width: ${(props) => props.maxWidth}px) {
     display: none;
   }
 `;
 
 const HeaderMenuItem = styled.div`
-  margin: 0 5vw;
+  margin: 0 3vw;
   a {
     text-decoration: none;
     color: black;

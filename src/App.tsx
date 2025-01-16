@@ -6,6 +6,7 @@ import DormitoryMenuPage from "./pages/DormitoryMenuPage";
 import ArmMenuPage from "./pages/ArmMenuPage";
 import VisionMenuPage from "./pages/VisionMenuPage";
 import { createGlobalStyle } from "styled-components";
+import MedicalMenuPage from "./pages/MedicalMenuPage";
 
 const router = createBrowserRouter([
   {
@@ -29,6 +30,10 @@ const router = createBrowserRouter([
         path: "vision",
         element: <VisionMenuPage />,
       },
+      {
+        path: "medical",
+        element: <MedicalMenuPage />,
+      },
     ],
   },
 ]);
@@ -43,7 +48,7 @@ function App() {
 }
 
 const GlobalStyle = createGlobalStyle`
-    html, body {
+    html, body, #root {
         margin: 0;
         padding: 0;
         height: 100%;
