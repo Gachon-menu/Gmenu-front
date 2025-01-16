@@ -1,7 +1,7 @@
 import { Link } from "react-router-dom";
 import styled from "styled-components";
-import logo from "../../assets/img/gachonLogo.png";
-import ToggleMenu from "../modal/ToggleMenu";
+import logo from "@img/logo.png";
+import ToggleMenu from "@components/modal/ToggleMenu";
 
 const Header = () => {
   const maxWidth = 1100;

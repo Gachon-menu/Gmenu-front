@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import TodayMenu from "../components/TodayMenu";
+import TodayMenu from "@components/TodayMenu";
 
 const TodayMenuPage = () => {
   return (

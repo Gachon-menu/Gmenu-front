@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import TodayMenuItem from "./TodayMenuItem";
+import TodayMenuItem from "@components/TodayMenuItem";
 
 interface MenuProps {
   title: string;
