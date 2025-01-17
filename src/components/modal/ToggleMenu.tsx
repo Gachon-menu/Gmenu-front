@@ -23,7 +23,7 @@ const ToggleMenu = ({ maxWidth }: { maxWidth: number }) => {
         </Link>
       </ListItemWrapper>
       <ListItemWrapper onClick={toggleDrawer(false)}>
-        <Link to="/dormitory">제3생활관(AI관 옆) 메뉴</Link>
+        <Link to="/dormitory">제 3생활관(AI관 옆) 메뉴</Link>
       </ListItemWrapper>
       <ListItemWrapper onClick={toggleDrawer(false)}>
         <Link to="/arm">교육대학원(아름관) 메뉴</Link>

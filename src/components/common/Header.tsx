@@ -4,7 +4,7 @@ import logo from "@img/gachonLogo.png";
 import ToggleMenu from "@components/modal/ToggleMenu";
 
 const Header = () => {
-  const maxWidth = 1100;
+  const maxWidth = 1115;
   return (
     <HeaderWrapper>
       <HeaderLogo>
@@ -15,7 +15,7 @@ const Header = () => {
       {/* 메뉴 아이템 */}
       <HeaderMenuWrapper maxWidth={maxWidth}>
         <HeaderMenuItem>
-          <Link to="/dormitory">제3생활관(AI관 옆) 메뉴</Link>
+          <Link to="/dormitory">제 3생활관(AI관 옆) 메뉴</Link>
         </HeaderMenuItem>
         <HeaderMenuItem>
           <Link to="/arm">교육대학원(아름관) 메뉴</Link>
