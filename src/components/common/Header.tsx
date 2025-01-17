@@ -1,6 +1,6 @@
 import { Link } from "react-router-dom";
 import styled from "styled-components";
-import logo from "@img/logo.png";
+import logo from "@img/gachonLogo.png";
 import ToggleMenu from "@components/modal/ToggleMenu";
 
 const Header = () => {
