@@ -1,17 +1,22 @@
 import styled from "styled-components";
 import TodayMenuItem from "@components/TodayMenuItem";
+import { MenuProps, TodayMenusProps } from "types/props";
 
-interface MenuProps {
-  title: string;
-}
-
-const TodayMenu = ({ title }: MenuProps) => {
+const TodayMenu = ({
+  restaurantName,
+  restaurantId,
+  menus,
+}: TodayMenusProps) => {
   return (
     <TodayMenuWrapper>
-      <TodayMenuTitle>{title}</TodayMenuTitle>
-      <TodayMenuItem type="아침" menu="등록된 식단내용이(가) 없습니다." />
-      <TodayMenuItem type="점심" menu="된장찌개, 쌀밥, 김치, 두부조림" />
-      <TodayMenuItem type="저녁" menu="라면, 김밥, 김치, 계란후라이" />
+      <TodayMenuTitle>{restaurantName}</TodayMenuTitle>
+      {menus.map((typeMenu: MenuProps, index: number) => (
+        <TodayMenuItem
+          key={`${restaurantId}-${index}`}
+          type={typeMenu.mealType}
+          menu={typeMenu.menu}
+        />
+      ))}
     </TodayMenuWrapper>
   );
 };
