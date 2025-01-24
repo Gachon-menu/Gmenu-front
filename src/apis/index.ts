@@ -17,4 +17,13 @@ const getDormitoryMenu = async () => {
     console.error(e);
   }
 };
-export { getTodayMenu, getDormitoryMenu };
+
+const getArmMenu = async () => {
+  try {
+    const response = await axiosInstance.get("/menu/arm");
+    return response.data.result.dayMenus;
+  } catch (e) {
+    console.error(e);
+  }
+};
+export { getTodayMenu, getDormitoryMenu, getArmMenu };
