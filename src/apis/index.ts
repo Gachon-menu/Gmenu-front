@@ -26,4 +26,14 @@ const getArmMenu = async () => {
     console.error(e);
   }
 };
-export { getTodayMenu, getDormitoryMenu, getArmMenu };
+
+const getVisionMenu = async () => {
+  try {
+    const response = await axiosInstance.get("/menu/visiontower");
+    return response.data.result.dayMenus;
+  } catch (e) {
+    console.error(e);
+  }
+};
+
+export { getTodayMenu, getDormitoryMenu, getArmMenu, getVisionMenu };
