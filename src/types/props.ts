@@ -11,3 +11,14 @@ export interface TodayMenusProps {
   restaurantId: number;
   menus: MenuProps[];
 }
+
+export interface DayMenusProps {
+  date: string;
+  dayOfWeek: string;
+  menus: Pick<MenuProps, "mealType" | "menu">[];
+}
+
+export interface MenuItemProps {
+  type: string;
+  menu: string;
+}

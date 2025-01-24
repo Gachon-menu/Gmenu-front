@@ -1,16 +1,16 @@
 import styled from "styled-components";
 import { MenuItemProps } from "types/props";
 
-const TodayMenuItem = ({ type, menu }: MenuItemProps) => {
+const DayMenuItem = ({ type, menu }: MenuItemProps) => {
   return (
-    <TodayMenuItemWrapper>
+    <DayMenuItemWrapper>
       <Type>{type}</Type>
       <Menu>{menu}</Menu>
-    </TodayMenuItemWrapper>
+    </DayMenuItemWrapper>
   );
 };
 
-const TodayMenuItemWrapper = styled.div`
+const DayMenuItemWrapper = styled.div`
   box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.1);
   padding: 1rem;
   border-radius: 5px;
@@ -25,4 +25,4 @@ const Type = styled.div`
 
 const Menu = styled.div``;
 
-export default TodayMenuItem;
+export default DayMenuItem;

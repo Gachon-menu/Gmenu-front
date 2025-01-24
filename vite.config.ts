@@ -9,6 +9,7 @@ export default defineConfig({
       "@components": "/src/components",
       "@pages": "/src/pages",
       "@img": "/src/assets/img",
+      "@apis": "/src/apis",
     },
   },
 });

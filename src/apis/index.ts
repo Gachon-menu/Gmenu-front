@@ -9,4 +9,12 @@ const getTodayMenu = async () => {
   }
 };
 
-export { getTodayMenu };
+const getDormitoryMenu = async () => {
+  try {
+    const response = await axiosInstance.get("/menu/dormitory");
+    return response.data.result.dayMenus;
+  } catch (e) {
+    console.error(e);
+  }
+};
+export { getTodayMenu, getDormitoryMenu };

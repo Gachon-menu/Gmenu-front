@@ -1,6 +1,6 @@
 import styled from "styled-components";
 import { useQuery } from "@tanstack/react-query";
-import { getTodayMenu } from "../apis/index";
+import { getTodayMenu } from "@apis/index";
 import { TodayMenusProps } from "types/props";
 import TodayMenu from "@components/TodayMenu";
 
@@ -13,12 +13,14 @@ const TodayMenuPage = () => {
     queryKey: ["todayMenu"],
     queryFn: getTodayMenu,
   });
+
   if (isLoading) {
     return <p>로딩중</p>;
   }
   if (error) {
     return <p>에러</p>;
   }
+
   const restaurants = [
     "비전타워 1층 메뉴",
     "교육대학원(아름관) 메뉴",
