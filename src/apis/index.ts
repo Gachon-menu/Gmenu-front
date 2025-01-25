@@ -36,4 +36,19 @@ const getVisionMenu = async () => {
   }
 };
 
-export { getTodayMenu, getDormitoryMenu, getArmMenu, getVisionMenu };
+const getMedicalMenu = async () => {
+  try {
+    const response = await axiosInstance.get("/menu/medical");
+    return response.data.result.dayMenus;
+  } catch (e) {
+    console.error(e);
+  }
+};
+
+export {
+  getTodayMenu,
+  getDormitoryMenu,
+  getArmMenu,
+  getVisionMenu,
+  getMedicalMenu,
+};
