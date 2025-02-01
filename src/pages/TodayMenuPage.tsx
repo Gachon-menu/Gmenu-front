@@ -20,6 +20,7 @@ const TodayMenuPage = () => {
   if (error) {
     return <p>에러</p>;
   }
+  console.log(todayMenus);
 
   const restaurants = [
     "비전타워 1층 메뉴",
@@ -32,14 +33,18 @@ const TodayMenuPage = () => {
     <Wrapper>
       <Title>가천대학교 오늘의 메뉴</Title>
       <TodayMenuWrapper>
-        {todayMenus.map((todayMenu: TodayMenusProps) => (
-          <TodayMenu
-            key={todayMenu.restaurantId}
-            restaurantName={restaurants[todayMenu.restaurantId - 1]}
-            restaurantId={todayMenu.restaurantId}
-            menus={todayMenu.menus}
-          />
-        ))}
+        {todayMenus.length > 0 ? (
+          todayMenus.map((todayMenu: TodayMenusProps) => (
+            <TodayMenu
+              key={todayMenu.restaurantId}
+              restaurantName={restaurants[todayMenu.restaurantId - 1]}
+              restaurantId={todayMenu.restaurantId}
+              menus={todayMenu.menus}
+            />
+          ))
+        ) : (
+          <p>메뉴가 없습니다.</p>
+        )}
       </TodayMenuWrapper>
     </Wrapper>
   );
