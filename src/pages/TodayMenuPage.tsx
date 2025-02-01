@@ -20,7 +20,6 @@ const TodayMenuPage = () => {
   if (error) {
     return <p>에러</p>;
   }
-  console.log(todayMenus);
 
   const restaurants = [
     "비전타워 1층 메뉴",
@@ -28,6 +27,8 @@ const TodayMenuPage = () => {
     "제3생활관(AI관 옆) 메뉴",
     "체육관(메디컬) 메뉴",
   ];
+
+  console.log(todayMenus);
 
   return (
     <Wrapper>
