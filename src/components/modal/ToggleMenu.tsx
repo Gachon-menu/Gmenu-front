@@ -32,7 +32,7 @@ const ToggleMenu = ({ maxWidth }: { maxWidth: number }) => {
         <Link to="/vision">비전타워 1층 메뉴</Link>
       </ListItemWrapper>
       <ListItemWrapper onClick={toggleDrawer(false)}>
-        <Link to="/vision">체육관(메디컬) 메뉴</Link>
+        <Link to="/medical">체육관(메디컬) 메뉴</Link>
       </ListItemWrapper>
     </List>
   );

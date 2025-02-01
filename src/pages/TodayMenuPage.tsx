@@ -28,8 +28,6 @@ const TodayMenuPage = () => {
     "체육관(메디컬) 메뉴",
   ];
 
-  console.log(todayMenus);
-
   return (
     <Wrapper>
       <Title>가천대학교 오늘의 메뉴</Title>
