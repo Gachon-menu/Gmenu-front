@@ -3,7 +3,7 @@ export interface MenuProps {
   restaurantId: number;
   menu: string;
   dayOfWeek: string;
-  mealType: string;
+  mealType: "아침" | "점심" | "저녁";
 }
 
 export interface TodayMenusProps {
@@ -19,6 +19,6 @@ export interface DayMenusProps {
 }
 
 export interface MenuItemProps {
-  type: string;
+  type: "아침" | "점심" | "저녁";
   menu: string;
 }
