@@ -7,7 +7,8 @@ export type Week =
   | "토요일"
   | "일요일";
 
-export type RestaurantName =
+export type TitleMenu =
+  | "오늘의 메뉴"
   | "비전타워 1층 메뉴"
   | "교육대학원(아름관) 메뉴"
   | "제3생활관(AI관 옆) 메뉴"
@@ -16,3 +17,5 @@ export type RestaurantName =
 export type RestaurantId = 1 | 2 | 3 | 4;
 
 export type MealType = "아침" | "점심" | "저녁";
+
+export type RouteLink = "/vision" | "/arm" | "/dormitory" | "/medical" | "/";

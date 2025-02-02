@@ -10,6 +10,7 @@ export default defineConfig({
       "@pages": "/src/pages",
       "@img": "/src/assets/img",
       "@apis": "/src/apis",
+      "@shared": "/src/shared",
     },
   },
 });

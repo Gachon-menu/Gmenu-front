@@ -1,4 +1,4 @@
-import { MealType, RestaurantId, RestaurantName, Week } from "./type";
+import { MealType, RestaurantId, RouteLink, TitleMenu, Week } from "./type";
 
 export interface MenuProps {
   date: string;
@@ -9,7 +9,7 @@ export interface MenuProps {
 }
 
 export interface TodayMenusProps {
-  restaurantName: RestaurantName;
+  restaurantName: TitleMenu;
   restaurantId: RestaurantId;
   menus: MenuProps[];
 }
@@ -23,4 +23,10 @@ export interface DayMenusProps {
 export interface MenuItemProps {
   type: MealType;
   menu: string;
+}
+
+export interface MenuLinkProps {
+  path: RouteLink;
+  label: TitleMenu;
+  color?: string;
 }

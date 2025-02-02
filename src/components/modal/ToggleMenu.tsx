@@ -4,6 +4,8 @@ import { Link } from "react-router-dom";
 import { faBars } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import styled from "styled-components";
+import { TitleItems } from "@shared/constants";
+import { MenuLinkProps } from "types/props";
 
 const ToggleMenu = ({ maxWidth }: { maxWidth: number }) => {
   const [state, setState] = React.useState({
@@ -13,29 +15,6 @@ const ToggleMenu = ({ maxWidth }: { maxWidth: number }) => {
   const toggleDrawer = (open: boolean) => () => {
     setState({ right: open });
   };
-
-  // Drawer에 표시될 내용
-  const list = () => (
-    <List>
-      <ListItemWrapper onClick={toggleDrawer(false)}>
-        <Link to="/" style={{ color: "#004E96" }}>
-          오늘의 메뉴
-        </Link>
-      </ListItemWrapper>
-      <ListItemWrapper onClick={toggleDrawer(false)}>
-        <Link to="/dormitory">제3생활관(AI관 옆) 메뉴</Link>
-      </ListItemWrapper>
-      <ListItemWrapper onClick={toggleDrawer(false)}>
-        <Link to="/arm">교육대학원(아름관) 메뉴</Link>
-      </ListItemWrapper>
-      <ListItemWrapper onClick={toggleDrawer(false)}>
-        <Link to="/vision">비전타워 1층 메뉴</Link>
-      </ListItemWrapper>
-      <ListItemWrapper onClick={toggleDrawer(false)}>
-        <Link to="/medical">체육관(메디컬) 메뉴</Link>
-      </ListItemWrapper>
-    </List>
-  );
 
   return (
     <div>
@@ -51,7 +30,16 @@ const ToggleMenu = ({ maxWidth }: { maxWidth: number }) => {
         onClose={toggleDrawer(false)} // 닫기
         onOpen={toggleDrawer(true)} // 열기
       >
-        {list()}
+        <List>
+          {TitleItems.map(({ path, label, color }: MenuLinkProps) => (
+            <ListItemWrapper key={path} onClick={toggleDrawer(false)}>
+              <Link to={path} style={color ? { color } : {}}>
+                {label}
+              </Link>
+            </ListItemWrapper>
+          ))}
+        </List>
+        ;
       </SwipeableDrawer>
     </div>
   );
