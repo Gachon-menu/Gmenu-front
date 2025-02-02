@@ -1,24 +1,26 @@
+import { MealType, RestaurantId, RestaurantName, Week } from "./type";
+
 export interface MenuProps {
   date: string;
-  restaurantId: number;
+  restaurantId: RestaurantId;
   menu: string;
-  dayOfWeek: string;
+  dayOfWeek: Week;
   mealType: "아침" | "점심" | "저녁";
 }
 
 export interface TodayMenusProps {
-  restaurantName?: string;
-  restaurantId: number;
+  restaurantName: RestaurantName;
+  restaurantId: RestaurantId;
   menus: MenuProps[];
 }
 
 export interface DayMenusProps {
   date: string;
-  dayOfWeek: string;
+  dayOfWeek: Week;
   menus: Pick<MenuProps, "mealType" | "menu">[];
 }
 
 export interface MenuItemProps {
-  type: "아침" | "점심" | "저녁";
+  type: MealType;
   menu: string;
 }

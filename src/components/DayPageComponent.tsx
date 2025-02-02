@@ -1,10 +1,11 @@
 import styled from "styled-components";
 import { DayMenusProps } from "types/props";
 import DayMenu from "./DayMenu";
+import { RestaurantName } from "types/type";
 
 interface DayPageComponentProps {
   dayMenus: DayMenusProps[];
-  restaurantName: string;
+  restaurantName: RestaurantName;
   location: string;
   time: string;
 }

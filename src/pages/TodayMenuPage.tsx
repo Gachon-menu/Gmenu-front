@@ -3,6 +3,7 @@ import { useQuery } from "@tanstack/react-query";
 import { getTodayMenu } from "@apis/index";
 import { TodayMenusProps } from "types/props";
 import TodayMenu from "@components/TodayMenu";
+import { RestaurantName } from "types/type";
 
 const TodayMenuPage = () => {
   const {
@@ -21,7 +22,7 @@ const TodayMenuPage = () => {
     return <p>에러</p>;
   }
 
-  const restaurants = [
+  const restaurants: RestaurantName[] = [
     "비전타워 1층 메뉴",
     "교육대학원(아름관) 메뉴",
     "제3생활관(AI관 옆) 메뉴",
