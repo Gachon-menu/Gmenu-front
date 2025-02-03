@@ -2,12 +2,13 @@ import styled from "styled-components";
 import { DayMenusProps } from "types/props";
 import DayMenu from "./DayMenu";
 import { TitleMenu } from "types/type";
+import { useEffect, useState } from "react";
 
 interface DayPageComponentProps {
   dayMenus: DayMenusProps[];
   restaurantName: TitleMenu;
   location: string;
-  time: string;
+  time: string[];
 }
 
 const DayPageComponent = ({
@@ -16,11 +17,28 @@ const DayPageComponent = ({
   location,
   time,
 }: DayPageComponentProps) => {
+  const [changeLine, setChangeLine] = useState(
+    window.matchMedia("(max-width: 800px)").matches
+  );
+
+  //화면 크기 변화 감지
+  useEffect(() => {
+    const handler = (e: MediaQueryListEvent) => setChangeLine(e.matches);
+    const mediaQuery = window.matchMedia("(max-width: 800px)");
+
+    mediaQuery.addEventListener("change", handler);
+    return () => mediaQuery.removeEventListener("change", handler);
+  }, []);
+
   return (
     <Wrapper>
       <Title>{restaurantName}</Title>
-      <Info>{location}</Info>
-      <Info>{time}</Info>
+      <Info>식당 위치: {location}</Info>
+      <TimeWrapper>
+        <Info>운영 시간:</Info>
+        <Time>{changeLine ? time.join("\n") : time.join(" / ")}</Time>
+      </TimeWrapper>
+
       <DayMenuWrapper>
         {dayMenus
           .slice()
@@ -64,6 +82,21 @@ const Info = styled.div`
   font-size: 1.1rem;
   margin-bottom: 1vh;
   color: #666;
+  flex-shrink: 0;
+`;
+const TimeWrapper = styled.div`
+  display: flex;
+  flex-direction: row;
+  font-size: 1.1rem;
+  margin-bottom: 1vh;
+  color: #666;
+`;
+
+const Time = styled.div`
+  margin-left: 0.25rem;
+  @media (max-width: 800px) {
+    white-space: pre-line; /* 작은 화면에서 줄바꿈 적용 */
+  }
 `;
 
 const DayMenuWrapper = styled.div`

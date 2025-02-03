@@ -4,8 +4,8 @@ import { useQuery } from "@tanstack/react-query";
 
 const MedicalMenuPage = () => {
   const restaurantName = "체육관(메디컬) 메뉴";
-  const location = "식당 위치: 메디컬캠퍼스 체육관 1층";
-  const time = "운영 시간: 08:00 ~ 19:30";
+  const location = "메디컬캠퍼스 체육관 1층";
+  const time = ["08:00 ~ 19:30"];
   const {
     data: dayMenus,
     error,
