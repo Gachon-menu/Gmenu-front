@@ -57,7 +57,7 @@ const Wrapper = styled.div`
 const Title = styled.div`
   font-size: 1.7rem;
   font-weight: bold;
-  margin: 1vh 0 10vh 0;
+  margin: 1vh 0 8vh 0;
 `;
 
 const TodayMenuWrapper = styled.div`

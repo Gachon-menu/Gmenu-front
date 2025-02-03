@@ -25,14 +25,27 @@ const DayPageComponent = ({
         {dayMenus
           .slice()
           .reverse()
-          .map((dayMenus: DayMenusProps, index: number) => (
-            <DayMenu
-              key={index}
-              date={dayMenus.date}
-              dayOfWeek={dayMenus.dayOfWeek}
-              menus={dayMenus.menus}
-            />
-          ))}
+          .map((dayMenus: DayMenusProps, index: number) => {
+            // menus를 mealType 기준으로 정렬
+            const sortedMenus = dayMenus.menus.sort((a, b) => {
+              const mealOrder: { [key: string]: number } = {
+                아침: 0,
+                점심: 1,
+                저녁: 2,
+              };
+
+              return mealOrder[a.mealType] - mealOrder[b.mealType];
+            });
+
+            return (
+              <DayMenu
+                key={index}
+                date={dayMenus.date}
+                dayOfWeek={dayMenus.dayOfWeek}
+                menus={sortedMenus} // 정렬된 메뉴 전달
+              />
+            );
+          })}
       </DayMenuWrapper>
     </Wrapper>
   );
