@@ -22,7 +22,7 @@ const DormitoryMenuPage = () => {
   }
   return (
     <DayPageComponent
-      dayMenus={dayMenus}
+      dayMenus={dayMenus?.result.dayMenus}
       restaurantName={restaurantName}
       location={location}
       time={time}

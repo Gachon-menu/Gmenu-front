@@ -1,47 +1,65 @@
+import { BaseResponse } from "types/base";
 import axiosInstance from "./axios-instance";
+import { DayMenusResponse, TodayMenusResponse } from "types/response";
 
-const getTodayMenu = async () => {
+const getTodayMenu = async (): Promise<BaseResponse<TodayMenusResponse>> => {
   try {
-    const response = await axiosInstance.get("/menu/today");
-    return response.data.result.todayMenus;
+    const response = await axiosInstance.get<BaseResponse<TodayMenusResponse>>(
+      "/menu/today"
+    );
+    return response.data;
   } catch (e) {
     console.error(e);
+    throw e;
   }
 };
 
-const getDormitoryMenu = async () => {
+const getDormitoryMenu = async (): Promise<BaseResponse<DayMenusResponse>> => {
   try {
-    const response = await axiosInstance.get("/menu/dormitory");
-    return response.data.result.dayMenus;
+    const response = await axiosInstance.get<BaseResponse<DayMenusResponse>>(
+      "/menu/dormitory"
+    );
+    return response.data;
   } catch (e) {
     console.error(e);
+    throw e;
   }
 };
 
-const getArmMenu = async () => {
+const getArmMenu = async (): Promise<BaseResponse<DayMenusResponse>> => {
   try {
-    const response = await axiosInstance.get("/menu/arm");
-    return response.data.result.dayMenus;
+    const response = await axiosInstance.get<BaseResponse<DayMenusResponse>>(
+      "/menu/arm"
+    );
+    return response.data;
   } catch (e) {
     console.error(e);
+    throw e;
   }
 };
 
-const getVisionMenu = async () => {
+const getVisionMenu = async (): Promise<BaseResponse<DayMenusResponse>> => {
   try {
-    const response = await axiosInstance.get("/menu/visiontower");
-    return response.data.result.dayMenus;
+    const response = await axiosInstance.get<BaseResponse<DayMenusResponse>>(
+      "/menu/visiontower"
+    );
+    return response.data;
   } catch (e) {
     console.error(e);
+    throw e;
   }
 };
 
-const getMedicalMenu = async () => {
+const getMedicalMenu = async (): Promise<BaseResponse<DayMenusResponse>> => {
   try {
-    const response = await axiosInstance.get("/menu/medical");
-    return response.data.result.dayMenus;
+    const response = await axiosInstance.get<BaseResponse<DayMenusResponse>>(
+      "/menu/medical"
+    );
+    return response.data;
   } catch (e) {
     console.error(e);
+
+    throw e;
   }
 };
 

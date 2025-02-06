@@ -5,7 +5,7 @@ import { TitleMenu } from "types/type";
 import { useEffect, useState } from "react";
 
 interface DayPageComponentProps {
-  dayMenus: DayMenusProps[];
+  dayMenus: DayMenusProps[] | undefined;
   restaurantName: TitleMenu;
   location: string;
   time: string[];
@@ -40,30 +40,31 @@ const DayPageComponent = ({
       </TimeWrapper>
 
       <DayMenuWrapper>
-        {dayMenus
-          .slice()
-          .reverse()
-          .map((dayMenus: DayMenusProps, index: number) => {
-            // menus를 mealType 기준으로 정렬
-            const sortedMenus = dayMenus.menus.sort((a, b) => {
-              const mealOrder: { [key: string]: number } = {
-                아침: 0,
-                점심: 1,
-                저녁: 2,
-              };
+        {dayMenus !== undefined &&
+          dayMenus
+            .slice()
+            .reverse()
+            .map((dayMenus: DayMenusProps, index: number) => {
+              // menus를 mealType 기준으로 정렬
+              const sortedMenus = dayMenus.menus.sort((a, b) => {
+                const mealOrder: { [key: string]: number } = {
+                  아침: 0,
+                  점심: 1,
+                  저녁: 2,
+                };
 
-              return mealOrder[a.mealType] - mealOrder[b.mealType];
-            });
+                return mealOrder[a.mealType] - mealOrder[b.mealType];
+              });
 
-            return (
-              <DayMenu
-                key={index}
-                date={dayMenus.date}
-                dayOfWeek={dayMenus.dayOfWeek}
-                menus={sortedMenus} // 정렬된 메뉴 전달
-              />
-            );
-          })}
+              return (
+                <DayMenu
+                  key={index}
+                  date={dayMenus.date}
+                  dayOfWeek={dayMenus.dayOfWeek}
+                  menus={sortedMenus} // 정렬된 메뉴 전달
+                />
+              );
+            })}
       </DayMenuWrapper>
     </Wrapper>
   );

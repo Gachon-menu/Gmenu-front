@@ -28,13 +28,12 @@ const TodayMenuPage = () => {
     "제3생활관(AI관 옆) 메뉴",
     "체육관(메디컬) 메뉴",
   ];
-
   return (
     <Wrapper>
       <Title>가천대학교 오늘의 메뉴</Title>
       <TodayMenuWrapper>
-        {todayMenus.length > 0 ? (
-          todayMenus.map((todayMenu: TodayMenusProps) => (
+        {todayMenus?.result.todayMenus !== undefined ? (
+          todayMenus?.result.todayMenus.map((todayMenu: TodayMenusProps) => (
             <TodayMenu
               key={todayMenu.restaurantId}
               restaurantName={restaurants[todayMenu.restaurantId - 1]}
