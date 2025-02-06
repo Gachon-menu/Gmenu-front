@@ -1,10 +1,11 @@
+import { changeMealType } from "@shared/changeMealType";
 import styled from "styled-components";
 import { MenuItemProps } from "types/props";
 
 const TodayMenuItem = ({ type, menu }: MenuItemProps) => {
   return (
     <TodayMenuItemWrapper>
-      <Type>{type}</Type>
+      <Type>{changeMealType(type)}</Type>
       <Menu>{menu}</Menu>
     </TodayMenuItemWrapper>
   );
