@@ -1,5 +1,5 @@
 import { useQuery } from "@tanstack/react-query";
-import { getDormitoryMenu } from "@apis/index";
+import { getDayMenu } from "@apis/index";
 import DayPageComponent from "@components/DayPageComponent";
 
 const DormitoryMenuPage = () => {
@@ -12,7 +12,7 @@ const DormitoryMenuPage = () => {
     isLoading,
   } = useQuery({
     queryKey: ["dormitoryMenu"],
-    queryFn: getDormitoryMenu,
+    queryFn: () => getDayMenu("dormitory"),
   });
   if (isLoading) {
     return <p>로딩중</p>;

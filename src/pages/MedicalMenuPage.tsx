@@ -1,4 +1,4 @@
-import { getMedicalMenu } from "@apis/index";
+import { getDayMenu } from "@apis/index";
 import DayPageComponent from "@components/DayPageComponent";
 import { useQuery } from "@tanstack/react-query";
 
@@ -12,7 +12,7 @@ const MedicalMenuPage = () => {
     isLoading,
   } = useQuery({
     queryKey: ["medicalMenu"],
-    queryFn: getMedicalMenu,
+    queryFn: () => getDayMenu("medical"),
   });
   if (isLoading) {
     return <p>로딩중</p>;

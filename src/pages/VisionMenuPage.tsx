@@ -1,4 +1,4 @@
-import { getVisionMenu } from "@apis/index";
+import { getDayMenu } from "@apis/index";
 import DayPageComponent from "@components/DayPageComponent";
 import { useQuery } from "@tanstack/react-query";
 
@@ -16,7 +16,7 @@ const VisionMenuPage = () => {
     isLoading,
   } = useQuery({
     queryKey: ["visionMenu"],
-    queryFn: getVisionMenu,
+    queryFn: () => getDayMenu("visiontower"),
   });
   if (isLoading) {
     return <p>로딩중</p>;

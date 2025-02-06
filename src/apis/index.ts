@@ -14,46 +14,12 @@ const getTodayMenu = async (): Promise<BaseResponse<TodayMenusResponse>> => {
   }
 };
 
-const getDormitoryMenu = async (): Promise<BaseResponse<DayMenusResponse>> => {
+const getDayMenu = async (
+  location: string
+): Promise<BaseResponse<DayMenusResponse>> => {
   try {
     const response = await axiosInstance.get<BaseResponse<DayMenusResponse>>(
-      "/menu/dormitory"
-    );
-    return response.data;
-  } catch (e) {
-    console.error(e);
-    throw e;
-  }
-};
-
-const getArmMenu = async (): Promise<BaseResponse<DayMenusResponse>> => {
-  try {
-    const response = await axiosInstance.get<BaseResponse<DayMenusResponse>>(
-      "/menu/arm"
-    );
-    return response.data;
-  } catch (e) {
-    console.error(e);
-    throw e;
-  }
-};
-
-const getVisionMenu = async (): Promise<BaseResponse<DayMenusResponse>> => {
-  try {
-    const response = await axiosInstance.get<BaseResponse<DayMenusResponse>>(
-      "/menu/visiontower"
-    );
-    return response.data;
-  } catch (e) {
-    console.error(e);
-    throw e;
-  }
-};
-
-const getMedicalMenu = async (): Promise<BaseResponse<DayMenusResponse>> => {
-  try {
-    const response = await axiosInstance.get<BaseResponse<DayMenusResponse>>(
-      "/menu/medical"
+      `/menu/${location}`
     );
     return response.data;
   } catch (e) {
@@ -63,10 +29,4 @@ const getMedicalMenu = async (): Promise<BaseResponse<DayMenusResponse>> => {
   }
 };
 
-export {
-  getTodayMenu,
-  getDormitoryMenu,
-  getArmMenu,
-  getVisionMenu,
-  getMedicalMenu,
-};
+export { getTodayMenu, getDayMenu };

@@ -1,4 +1,4 @@
-import { getArmMenu } from "@apis/index";
+import { getDayMenu } from "@apis/index";
 import DayPageComponent from "@components/DayPageComponent";
 import { useQuery } from "@tanstack/react-query";
 
@@ -12,7 +12,7 @@ const ArmMenuPage = () => {
     isLoading,
   } = useQuery({
     queryKey: ["armMenu"],
-    queryFn: getArmMenu,
+    queryFn: () => getDayMenu("arm"),
   });
   if (isLoading) {
     return <p>로딩중</p>;
