@@ -1,19 +1,11 @@
 import styled from "styled-components";
-import { useQuery } from "@tanstack/react-query";
-import { getTodayMenu } from "@apis/index";
 import { TodayMenusProps } from "types/props";
 import TodayMenu from "@components/TodayMenu";
 import { TitleMenu } from "types/type";
+import useGetTodayMenu from "@hooks/queries/useGetTodayMenu";
 
 const TodayMenuPage = () => {
-  const {
-    data: todayMenus,
-    error,
-    isLoading,
-  } = useQuery({
-    queryKey: ["todayMenu"],
-    queryFn: getTodayMenu,
-  });
+  const { data: todayMenus, error, isLoading } = useGetTodayMenu();
 
   if (isLoading) {
     return <p>로딩중</p>;

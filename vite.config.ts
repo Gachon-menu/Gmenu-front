@@ -11,6 +11,7 @@ export default defineConfig({
       "@img": "/src/assets/img",
       "@apis": "/src/apis",
       "@shared": "/src/shared",
+      "@hooks": "/src/hooks",
     },
   },
 });

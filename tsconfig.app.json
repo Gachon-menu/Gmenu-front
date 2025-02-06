@@ -27,7 +27,8 @@
       "@components/*": ["components/*"],
       "@img/*": ["assets/img/*"],
       "@apis/*": ["apis/*"],
-      "@shared/*": ["shared/*"]
+      "@shared/*": ["shared/*"],
+      "@hooks/*": ["hooks/*"]
     }
   },
   "include": ["src"]
