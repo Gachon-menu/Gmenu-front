@@ -1,4 +1,5 @@
 import DayPageComponent from "@components/DayPageComponent";
+import Loading from "@components/Loading";
 import NoMenu from "@components/NoMenu";
 import useGetDayMenu from "@hooks/queries/useGetDayMenu";
 
@@ -9,7 +10,7 @@ const MedicalMenuPage = () => {
   const { data: dayMenus, error, isLoading } = useGetDayMenu("medical");
 
   if (isLoading) {
-    return <p>로딩중</p>;
+    return <Loading />;
   }
   if (error) {
     return <p>에러</p>;

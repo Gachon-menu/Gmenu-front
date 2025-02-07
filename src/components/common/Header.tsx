@@ -28,6 +28,7 @@ const Header = () => {
 };
 
 const HeaderWrapper = styled.header`
+  height: 5vh;
   padding: 1.5rem 8vw;
   display: flex;
   justify-content: space-between;

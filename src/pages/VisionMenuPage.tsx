@@ -1,4 +1,5 @@
 import DayPageComponent from "@components/DayPageComponent";
+import Loading from "@components/Loading";
 import NoMenu from "@components/NoMenu";
 import useGetDayMenu from "@hooks/queries/useGetDayMenu";
 
@@ -13,7 +14,7 @@ const VisionMenuPage = () => {
   const { data: dayMenus, error, isLoading } = useGetDayMenu("visiontower");
 
   if (isLoading) {
-    return <p>로딩중</p>;
+    return <Loading />;
   }
   if (error) {
     return <p>에러</p>;

@@ -1,4 +1,5 @@
 import DayPageComponent from "@components/DayPageComponent";
+import Loading from "@components/Loading";
 import NoMenu from "@components/NoMenu";
 import useGetDayMenu from "@hooks/queries/useGetDayMenu";
 
@@ -7,8 +8,9 @@ const DormitoryMenuPage = () => {
   const location = "제3학생생활관 1층 학생식당";
   const time = ["조식 8:00 ~ 9:00", "중식 11:00 ~ 14:00", "석식 17:30 ~ 18:30"];
   const { data: dayMenus, error, isLoading } = useGetDayMenu("dormitory");
+
   if (isLoading) {
-    return <p>로딩중</p>;
+    return <Loading />;
   }
   if (error) {
     return <p>에러</p>;

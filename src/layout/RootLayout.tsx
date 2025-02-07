@@ -20,7 +20,6 @@ const OutletWrapper = styled.div`
   padding: 5vh 12vw;
   display: flex;
   flex-direction: column;
-  height: 100%;
 `;
 
 export default RootLayOut;

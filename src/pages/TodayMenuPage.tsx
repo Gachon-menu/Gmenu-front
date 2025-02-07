@@ -4,12 +4,13 @@ import TodayMenu from "@components/TodayMenu";
 import { TitleMenu } from "types/type";
 import useGetTodayMenu from "@hooks/queries/useGetTodayMenu";
 import NoMenu from "@components/NoMenu";
+import Loading from "@components/Loading";
 
 const TodayMenuPage = () => {
   const { data: todayMenus, error, isLoading } = useGetTodayMenu();
 
-  if (isLoading) {
-    return <p>로딩중</p>;
+  if (true) {
+    return <Loading />;
   }
   if (error) {
     return <p>에러</p>;
