@@ -9,7 +9,7 @@ import Loading from "@components/Loading";
 const TodayMenuPage = () => {
   const { data: todayMenus, error, isLoading } = useGetTodayMenu();
 
-  if (true) {
+  if (isLoading) {
     return <Loading />;
   }
   if (error) {
