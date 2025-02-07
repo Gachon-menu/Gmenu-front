@@ -3,6 +3,7 @@ import { TodayMenusProps } from "types/props";
 import TodayMenu from "@components/TodayMenu";
 import { TitleMenu } from "types/type";
 import useGetTodayMenu from "@hooks/queries/useGetTodayMenu";
+import NoMenu from "@components/NoMenu";
 
 const TodayMenuPage = () => {
   const { data: todayMenus, error, isLoading } = useGetTodayMenu();
@@ -34,7 +35,7 @@ const TodayMenuPage = () => {
             />
           ))
         ) : (
-          <p>메뉴가 없습니다.</p>
+          <NoMenu />
         )}
       </TodayMenuWrapper>
     </Wrapper>
