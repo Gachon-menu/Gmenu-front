@@ -8,7 +8,7 @@ import { TitleItems } from "@shared/constants";
 import { MenuLinkProps } from "types/props";
 import { useTabLinkStore } from "@store/useTabStore";
 
-const ToggleMenu = ({ maxWidth }: { maxWidth: number }) => {
+const ToggleMenu = () => {
   const navigate = useNavigate();
   const { tabLink, setTabLink } = useTabLinkStore();
   const [state, setState] = React.useState({
@@ -27,11 +27,7 @@ const ToggleMenu = ({ maxWidth }: { maxWidth: number }) => {
 
   return (
     <div>
-      <MenuIcon
-        icon={faBars}
-        onClick={toggleDrawer(true)}
-        maxWidth={maxWidth}
-      />
+      <MenuIcon icon={faBars} onClick={toggleDrawer(true)} />
       {/* SwipeableDrawer: 오른쪽에서만 열리도록 설정 */}
       <SwipeableDrawer
         anchor="right"
@@ -54,7 +50,7 @@ const ToggleMenu = ({ maxWidth }: { maxWidth: number }) => {
     </div>
   );
 };
-const MenuIcon = styled(FontAwesomeIcon)<{ maxWidth: number }>`
+const MenuIcon = styled(FontAwesomeIcon)`
   font-size: 1.5rem;
   cursor: pointer;
 
@@ -62,7 +58,7 @@ const MenuIcon = styled(FontAwesomeIcon)<{ maxWidth: number }>`
   visibility: hidden;
 
   /* 작은 화면에서는 보이게 */
-  @media (max-width: ${(props) => props.maxWidth}px) {
+  @media (max-width: ${(props) => props.theme.maxWidth2 + "px"}) {
     visibility: visible;
   }
 `;

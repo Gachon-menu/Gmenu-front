@@ -7,7 +7,6 @@ import { MenuLinkProps } from "types/props";
 import { useTabLinkStore } from "@store/useTabStore";
 
 const Header = () => {
-  const maxWidth = 1115;
   const navigate = useNavigate();
   const { tabLink, setTabLink } = useTabLinkStore();
 
@@ -22,7 +21,7 @@ const Header = () => {
         <img src={logo} alt="logo" onClick={handleClickTab("/")} />
       </HeaderLogo>
       {/* 메뉴 아이템 */}
-      <HeaderMenuWrapper maxWidth={maxWidth}>
+      <HeaderMenuWrapper>
         {TitleItems.slice(1).map(({ path, label }: MenuLinkProps) => (
           <HeaderMenuItem
             key={path}
@@ -33,7 +32,7 @@ const Header = () => {
           </HeaderMenuItem>
         ))}
       </HeaderMenuWrapper>
-      <ToggleMenu maxWidth={maxWidth} />
+      <ToggleMenu />
     </HeaderWrapper>
   );
 };
@@ -54,13 +53,13 @@ const HeaderLogo = styled.div`
   cursor: pointer;
 `;
 
-const HeaderMenuWrapper = styled.div<{ maxWidth: number }>`
+const HeaderMenuWrapper = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
 
   /* 작은 화면에서는 숨김 */
-  @media (max-width: ${(props) => props.maxWidth}px) {
+  @media (max-width: ${(props) => props.theme.maxWidth2 + "px"}) {
     display: none;
   }
 `;

@@ -3,6 +3,7 @@ import { DayMenusProps } from "types/props";
 import DayMenu from "./DayMenu";
 import { TitleMenu } from "types/type";
 import { useEffect, useState } from "react";
+import { theme } from "@styles/theme";
 
 interface DayPageComponentProps {
   dayMenus: DayMenusProps[] | undefined;
@@ -18,13 +19,13 @@ const DayPageComponent = ({
   time,
 }: DayPageComponentProps) => {
   const [changeLine, setChangeLine] = useState(
-    window.matchMedia("(max-width: 800px)").matches
+    window.matchMedia(`(max-width: ${theme.maxWidth1}px)`).matches
   );
 
   //화면 크기 변화 감지
   useEffect(() => {
     const handler = (e: MediaQueryListEvent) => setChangeLine(e.matches);
-    const mediaQuery = window.matchMedia("(max-width: 800px)");
+    const mediaQuery = window.matchMedia(`(max-width: ${theme.maxWidth1}px)`);
 
     mediaQuery.addEventListener("change", handler);
     return () => mediaQuery.removeEventListener("change", handler);
@@ -95,7 +96,7 @@ const TimeWrapper = styled.div`
 
 const Time = styled.div`
   margin-left: 0.25rem;
-  @media (max-width: 800px) {
+  @media (max-width: ${(props) => props.theme.maxWidth1 + "px"}) {
     white-space: pre-line; /* 작은 화면에서 줄바꿈 적용 */
   }
 `;
@@ -107,10 +108,10 @@ const DayMenuWrapper = styled.div`
   gap: 1rem 2rem;
   justify-items: center;
   align-items: stretch;
-  @media (max-width: 1115px) {
+  @media (max-width: ${(props) => props.theme.maxWidth2 + "px"}) {
     grid-template-columns: repeat(2, 1fr);
   }
-  @media (max-width: 800px) {
+  @media (max-width: ${(props) => props.theme.maxWidth1 + "px"}) {
     grid-template-columns: repeat(1, 1fr);
   }
 `;

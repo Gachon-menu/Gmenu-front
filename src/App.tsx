@@ -5,9 +5,10 @@ import TodayMenuPage from "./pages/TodayMenuPage";
 import DormitoryMenuPage from "./pages/DormitoryMenuPage";
 import ArmMenuPage from "./pages/ArmMenuPage";
 import VisionMenuPage from "./pages/VisionMenuPage";
-import { createGlobalStyle } from "styled-components";
+import { createGlobalStyle, ThemeProvider } from "styled-components";
 import MedicalMenuPage from "./pages/MedicalMenuPage";
 import "pretendard/dist/web/static/pretendard.css";
+import { theme } from "@styles/theme";
 
 const router = createBrowserRouter([
   {
@@ -41,10 +42,10 @@ const router = createBrowserRouter([
 
 function App() {
   return (
-    <>
+    <ThemeProvider theme={theme}>
       <GlobalStyle />
       <RouterProvider router={router} />
-    </>
+    </ThemeProvider>
   );
 }
 
