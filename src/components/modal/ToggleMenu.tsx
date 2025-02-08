@@ -20,8 +20,8 @@ const ToggleMenu = () => {
   };
 
   const handleClickTab = (path: string) => () => {
+    setState({ right: false });
     navigate(path);
-    toggleDrawer(false);
     setTabLink(path);
   };
 
