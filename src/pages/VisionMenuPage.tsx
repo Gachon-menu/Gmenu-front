@@ -7,7 +7,7 @@ const VisionMenuPage = () => {
   const restaurantName = "비전타워 1층 메뉴";
   const location = "비전타워 1층";
   const time = [
-    "조식 7:30 ~ 9:30",
+    "조식 07:30 ~ 9:30",
     "중식 A, B메뉴 11:00 ~ 13:30",
     "중식 C메뉴 12:00 ~ 14:00",
   ];

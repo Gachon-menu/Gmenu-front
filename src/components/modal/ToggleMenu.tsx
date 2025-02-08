@@ -50,7 +50,6 @@ const ToggleMenu = ({ maxWidth }: { maxWidth: number }) => {
             </ListItemWrapper>
           ))}
         </List>
-        ;
       </SwipeableDrawer>
     </div>
   );
