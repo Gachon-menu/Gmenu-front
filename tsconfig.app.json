@@ -28,7 +28,8 @@
       "@img/*": ["assets/img/*"],
       "@apis/*": ["apis/*"],
       "@shared/*": ["shared/*"],
-      "@hooks/*": ["hooks/*"]
+      "@hooks/*": ["hooks/*"],
+      "@store/*": ["store/*"]
     }
   },
   "include": ["src"]

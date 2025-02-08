@@ -1,24 +1,35 @@
-import { Link } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import styled from "styled-components";
 import logo from "@img/gachonLogo.png";
 import ToggleMenu from "@components/modal/ToggleMenu";
 import { TitleItems } from "@shared/constants";
 import { MenuLinkProps } from "types/props";
+import { useTabLinkStore } from "@store/useTabStore";
 
 const Header = () => {
   const maxWidth = 1115;
+  const navigate = useNavigate();
+  const { tabLink, setTabLink } = useTabLinkStore();
+
+  const handleClickTab = (path: string) => () => {
+    navigate(path);
+    setTabLink(path);
+    console.log(tabLink);
+  };
   return (
     <HeaderWrapper>
       <HeaderLogo>
-        <Link to="/">
-          <img src={logo} alt="logo" />
-        </Link>
+        <img src={logo} alt="logo" onClick={handleClickTab("/")} />
       </HeaderLogo>
       {/* 메뉴 아이템 */}
       <HeaderMenuWrapper maxWidth={maxWidth}>
         {TitleItems.slice(1).map(({ path, label }: MenuLinkProps) => (
-          <HeaderMenuItem key={path}>
-            <Link to={path}>{label}</Link>
+          <HeaderMenuItem
+            key={path}
+            onClick={handleClickTab(path)}
+            selectedTab={tabLink === path}
+          >
+            {label}
           </HeaderMenuItem>
         ))}
       </HeaderMenuWrapper>
@@ -40,6 +51,7 @@ const HeaderLogo = styled.div`
   img {
     width: 2rem;
   }
+  cursor: pointer;
 `;
 
 const HeaderMenuWrapper = styled.div<{ maxWidth: number }>`
@@ -53,19 +65,19 @@ const HeaderMenuWrapper = styled.div<{ maxWidth: number }>`
   }
 `;
 
-const HeaderMenuItem = styled.div`
+const HeaderMenuItem = styled.div<{ selectedTab: boolean }>`
   margin: 0 3vw;
-  a {
-    text-decoration: none;
-    color: black;
-    font-size: 1.1rem;
-    font-weight: 500;
+  text-decoration: none;
+  // color: black;
+  font-size: 1.1rem;
+  font-weight: 500;
+  color: ${(props) => (props.selectedTab ? "#004E96" : "black")};
 
-    /* 마우스 올릴 때 밑줄 생기게 */
-    &:hover {
-      text-decoration: underline;
-      text-underline-offset: 5px;
-    }
+  /* 마우스 올릴 때 밑줄 생기게 */
+  &:hover {
+    text-decoration: underline;
+    text-underline-offset: 5px;
+    cursor: pointer;
   }
 `;
 

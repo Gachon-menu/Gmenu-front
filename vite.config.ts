@@ -12,6 +12,7 @@ export default defineConfig({
       "@apis": "/src/apis",
       "@shared": "/src/shared",
       "@hooks": "/src/hooks",
+      "@store": "/src/store",
     },
   },
 });
