@@ -7,6 +7,7 @@ import ArmMenuPage from "./pages/ArmMenuPage";
 import VisionMenuPage from "./pages/VisionMenuPage";
 import { createGlobalStyle } from "styled-components";
 import MedicalMenuPage from "./pages/MedicalMenuPage";
+import "pretendard/dist/web/static/pretendard.css";
 
 const router = createBrowserRouter([
   {
@@ -53,6 +54,7 @@ const GlobalStyle = createGlobalStyle`
         padding: 0;
         height: 100%;
         width: 100%;
+        font-family: "Pretendard", sans-serif;
     }
 `;
 
