@@ -1,19 +1,28 @@
 import React from "react";
 import { SwipeableDrawer, List, ListItem } from "@mui/material";
-import { Link } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import { faBars } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import styled from "styled-components";
 import { TitleItems } from "@shared/constants";
 import { MenuLinkProps } from "types/props";
+import { useTabLinkStore } from "@store/useTabStore";
 
 const ToggleMenu = ({ maxWidth }: { maxWidth: number }) => {
+  const navigate = useNavigate();
+  const { tabLink, setTabLink } = useTabLinkStore();
   const [state, setState] = React.useState({
     right: false, // 오른쪽에서만 Drawer를 제어
   });
 
   const toggleDrawer = (open: boolean) => () => {
     setState({ right: open });
+  };
+
+  const handleClickTab = (path: string) => () => {
+    navigate(path);
+    toggleDrawer(false);
+    setTabLink(path);
   };
 
   return (
@@ -31,11 +40,13 @@ const ToggleMenu = ({ maxWidth }: { maxWidth: number }) => {
         onOpen={toggleDrawer(true)} // 열기
       >
         <List>
-          {TitleItems.map(({ path, label, color }: MenuLinkProps) => (
-            <ListItemWrapper key={path} onClick={toggleDrawer(false)}>
-              <Link to={path} style={color ? { color } : {}}>
-                {label}
-              </Link>
+          {TitleItems.map(({ path, label }: MenuLinkProps) => (
+            <ListItemWrapper
+              key={path}
+              onClick={handleClickTab(path)}
+              selectedTab={tabLink === path}
+            >
+              {label}
             </ListItemWrapper>
           ))}
         </List>
@@ -57,19 +68,18 @@ const MenuIcon = styled(FontAwesomeIcon)<{ maxWidth: number }>`
   }
 `;
 
-const ListItemWrapper = styled(ListItem)`
+const ListItemWrapper = styled(ListItem)<{ selectedTab: boolean }>`
   margin: 3vh 5vw;
-  a {
-    text-decoration: none;
-    color: black;
-    font-size: 1.1rem;
-    font-weight: 500;
+  text-decoration: none;
+  font-size: 1.1rem;
+  font-weight: 500;
+  color: ${(props) => (props.selectedTab ? "#004E96" : "black")};
 
-    /* 마우스 올릴 때 밑줄 생기게 */
-    &:hover {
-      text-decoration: underline;
-      text-underline-offset: 5px;
-    }
+  /* 마우스 올릴 때 밑줄 생기게 */
+  &:hover {
+    text-decoration: underline;
+    text-underline-offset: 5px;
+    cursor: pointer;
   }
 `;
 

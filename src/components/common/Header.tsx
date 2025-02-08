@@ -68,7 +68,6 @@ const HeaderMenuWrapper = styled.div<{ maxWidth: number }>`
 const HeaderMenuItem = styled.div<{ selectedTab: boolean }>`
   margin: 0 3vw;
   text-decoration: none;
-  // color: black;
   font-size: 1.1rem;
   font-weight: 500;
   color: ${(props) => (props.selectedTab ? "#004E96" : "black")};

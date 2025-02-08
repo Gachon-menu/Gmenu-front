@@ -28,5 +28,4 @@ export interface MenuItemProps {
 export interface MenuLinkProps {
   path: RouteLink;
   label: TitleMenu;
-  color?: string;
 }
