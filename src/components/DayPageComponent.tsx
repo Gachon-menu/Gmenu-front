@@ -4,6 +4,7 @@ import DayMenu from "./DayMenu";
 import { TitleMenu } from "types/type";
 import { useEffect, useState } from "react";
 import { theme } from "@styles/theme";
+import NoMenu from "./NoMenu";
 
 interface DayPageComponentProps {
   dayMenus: DayMenusProps[] | undefined;
@@ -39,10 +40,9 @@ const DayPageComponent = ({
         <Info>운영 시간:</Info>
         <Time>{changeLine ? time.join("\n") : time.join(" / ")}</Time>
       </TimeWrapper>
-
-      <DayMenuWrapper>
-        {dayMenus !== undefined &&
-          dayMenus
+      {dayMenus !== undefined && dayMenus.length > 0 ? (
+        <DayMenuWrapper>
+          {dayMenus
             .slice()
             .reverse()
             .map((dayMenus: DayMenusProps, index: number) => {
@@ -66,7 +66,10 @@ const DayPageComponent = ({
                 />
               );
             })}
-      </DayMenuWrapper>
+        </DayMenuWrapper>
+      ) : (
+        <NoMenu />
+      )}
     </Wrapper>
   );
 };

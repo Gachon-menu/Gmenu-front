@@ -1,6 +1,5 @@
 import DayPageComponent from "@components/DayPageComponent";
 import Loading from "@components/Loading";
-import NoMenu from "@components/NoMenu";
 import useGetDayMenu from "@hooks/queries/useGetDayMenu";
 
 const ArmMenuPage = () => {
@@ -16,15 +15,13 @@ const ArmMenuPage = () => {
     return <p>에러</p>;
   }
 
-  return dayMenus?.result.dayMenus !== undefined ? (
+  return (
     <DayPageComponent
       dayMenus={dayMenus?.result.dayMenus}
       restaurantName={restaurantName}
       location={location}
       time={time}
     />
-  ) : (
-    <NoMenu />
   );
 };
 

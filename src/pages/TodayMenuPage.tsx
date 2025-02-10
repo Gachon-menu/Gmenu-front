@@ -22,23 +22,25 @@ const TodayMenuPage = () => {
     "제3생활관(AI관 옆) 메뉴",
     "체육관(메디컬) 메뉴",
   ];
+
+  const menus = todayMenus?.result.todayMenus;
   return (
     <Wrapper>
       <Title>가천대학교 오늘의 메뉴</Title>
-      <TodayMenuWrapper>
-        {todayMenus?.result.todayMenus !== undefined ? (
-          todayMenus?.result.todayMenus.map((todayMenu: TodayMenusProps) => (
+      {menus !== undefined && menus.length > 0 ? (
+        <TodayMenuWrapper>
+          {menus.map((todayMenu: TodayMenusProps) => (
             <TodayMenu
               key={todayMenu.restaurantId}
               restaurantName={restaurants[todayMenu.restaurantId - 1]}
               restaurantId={todayMenu.restaurantId}
               menus={todayMenu.menus}
             />
-          ))
-        ) : (
-          <NoMenu />
-        )}
-      </TodayMenuWrapper>
+          ))}
+        </TodayMenuWrapper>
+      ) : (
+        <NoMenu />
+      )}
     </Wrapper>
   );
 };
