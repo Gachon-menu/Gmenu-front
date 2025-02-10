@@ -3,6 +3,7 @@ import TodayMenuItem from "@components/TodayMenuItem";
 import { MenuProps, TodayMenusProps } from "types/props";
 import { TitleItems } from "@shared/constants";
 import { useNavigate } from "react-router-dom";
+import { useTabLinkStore } from "@store/useTabStore";
 
 const TodayMenu = ({
   restaurantName,
@@ -10,9 +11,13 @@ const TodayMenu = ({
   menus,
 }: TodayMenusProps) => {
   const navigate = useNavigate();
+  const { setTabLink } = useTabLinkStore();
   const handleClickMenu = () => {
     const path = TitleItems.find((item) => item.label === restaurantName)?.path;
-    if (path) navigate(path);
+    if (path) {
+      navigate(path);
+      setTabLink(path);
+    }
   };
   return (
     <TodayMenuWrapper onClick={handleClickMenu}>
