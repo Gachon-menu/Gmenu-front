@@ -13,7 +13,6 @@ const Header = () => {
   const handleClickTab = (path: string) => () => {
     navigate(path);
     setTabLink(path);
-    console.log(tabLink);
   };
   return (
     <HeaderWrapper>
