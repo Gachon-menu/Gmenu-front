@@ -1,14 +1,21 @@
 import styled from "styled-components";
 import TodayMenuItem from "@components/TodayMenuItem";
 import { MenuProps, TodayMenusProps } from "types/props";
+import { TitleItems } from "@shared/constants";
+import { useNavigate } from "react-router-dom";
 
 const TodayMenu = ({
   restaurantName,
   restaurantId,
   menus,
 }: TodayMenusProps) => {
+  const navigate = useNavigate();
+  const handleClickMenu = () => {
+    const path = TitleItems.find((item) => item.label === restaurantName)?.path;
+    if (path) navigate(path);
+  };
   return (
-    <TodayMenuWrapper>
+    <TodayMenuWrapper onClick={handleClickMenu}>
       <TodayMenuTitle>{restaurantName}</TodayMenuTitle>
       {menus.map((typeMenu: MenuProps, index: number) => (
         <TodayMenuItem
@@ -31,6 +38,7 @@ const TodayMenuWrapper = styled.div`
   max-width: 35rem;
   flex-direction: column;
   margin-bottom: 3rem;
+  cursor: pointer;
 
   /* 애니메이션 효과 */
   animation: fadeInUp 0.8s ease;

@@ -27,6 +27,7 @@ const TodayMenuPage = () => {
   return (
     <Wrapper>
       <Title>가천대학교 오늘의 메뉴</Title>
+      <Info>식단은 매 주 월요일 오전 10시에 업데이트 됩니다.</Info>
       {menus !== undefined && menus.length > 0 ? (
         <TodayMenuWrapper>
           {menus.map((todayMenu: TodayMenusProps) => (
@@ -55,10 +56,17 @@ const Title = styled.div`
   margin: 1vh 0 8vh 0;
 `;
 
+const Info = styled.div`
+  font-size: 1.1rem;
+  margin-bottom: 2vh;
+  color: #666;
+  flex-shrink: 0;
+`;
+
 const TodayMenuWrapper = styled.div`
   display: grid;
   grid-template-columns: repeat(2, 1fr);
-  margin: 0 1vw;
+  margin: 5vh 1vw;
   gap: 1rem 2rem;
   justify-items: center;
   align-items: stretch; /* 메뉴가 많은 높이에 맞춰 늘어남 */
