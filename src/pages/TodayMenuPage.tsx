@@ -27,7 +27,7 @@ const TodayMenuPage = () => {
   return (
     <Wrapper>
       <Title>가천대학교 오늘의 메뉴</Title>
-      <Info>식단은 매 주 월요일 오전 10시에 업데이트 됩니다.</Info>
+      <Info>식단은 매주 월요일 오전 10시에 업데이트 됩니다.</Info>
       {menus !== undefined && menus.length > 0 ? (
         <TodayMenuWrapper>
           {menus.map((todayMenu: TodayMenusProps) => (
