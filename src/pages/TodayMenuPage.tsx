@@ -53,12 +53,12 @@ const Wrapper = styled.div`
 const Title = styled.div`
   font-size: 1.7rem;
   font-weight: bold;
-  margin: 1vh 0 8vh 0;
+  margin: 1vh 0 6vh 0;
 `;
 
 const Info = styled.div`
   font-size: 1.1rem;
-  margin-bottom: 2vh;
+  padding-bottom: 2vh;
   color: #666;
   flex-shrink: 0;
 `;
