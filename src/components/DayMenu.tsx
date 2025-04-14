@@ -1,6 +1,6 @@
 import styled from "styled-components";
 import { DayMenusProps, MenuProps } from "types/props";
-import DayMenuItem from "./DayMenuItem";
+import MenuItem from "./MenuItem";
 
 const DayMenu = ({ date, dayOfWeek, menus }: DayMenusProps) => {
   return (
@@ -10,7 +10,7 @@ const DayMenu = ({ date, dayOfWeek, menus }: DayMenusProps) => {
         .filter((typeMenu) => typeMenu.mealType !== ".")
         .map(
           (typeMenu: Pick<MenuProps, "mealType" | "menu">, index: number) => (
-            <DayMenuItem
+            <MenuItem
               key={index}
               type={typeMenu.mealType}
               menu={typeMenu.menu}

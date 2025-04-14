@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import TodayMenuItem from "@components/TodayMenuItem";
+import MenuItem from "@components/MenuItem";
 import { MenuProps, TodayMenusProps } from "types/props";
 import { TitleItems } from "@shared/constants";
 import { useNavigate } from "react-router-dom";
@@ -25,7 +25,7 @@ const TodayMenu = ({
       {menus
         .filter((typeMenu: MenuProps) => typeMenu.mealType !== ".")
         .map((typeMenu: MenuProps, index: number) => (
-          <TodayMenuItem
+          <MenuItem
             key={`${restaurantId}-${index}`}
             type={typeMenu.mealType}
             menu={typeMenu.menu}
