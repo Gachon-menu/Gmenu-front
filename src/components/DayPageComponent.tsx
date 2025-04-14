@@ -44,7 +44,9 @@ const DayPageComponent = ({
         <DayMenuWrapper>
           {dayMenus
             .slice()
-            .reverse()
+            .sort(
+              (a, b) => new Date(a.date).getTime() - new Date(b.date).getTime()
+            ) // 날짜 오름차순 정렬
             .map((dayMenus: DayMenusProps, index: number) => {
               // menus를 mealType 기준으로 정렬
               const sortedMenus = dayMenus.menus.sort((a, b) => {
