@@ -5,7 +5,7 @@ export interface MenuProps {
   restaurantId: RestaurantId;
   menu: string;
   dayOfWeek: Week;
-  mealType: "아침" | "점심" | "저녁";
+  mealType: MealType;
 }
 
 export interface TodayMenusProps {

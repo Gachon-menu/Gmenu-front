@@ -22,13 +22,15 @@ const TodayMenu = ({
   return (
     <TodayMenuWrapper onClick={handleClickMenu}>
       <TodayMenuTitle>{restaurantName}</TodayMenuTitle>
-      {menus.map((typeMenu: MenuProps, index: number) => (
-        <TodayMenuItem
-          key={`${restaurantId}-${index}`}
-          type={typeMenu.mealType}
-          menu={typeMenu.menu}
-        />
-      ))}
+      {menus
+        .filter((typeMenu: MenuProps) => typeMenu.mealType !== ".")
+        .map((typeMenu: MenuProps, index: number) => (
+          <TodayMenuItem
+            key={`${restaurantId}-${index}`}
+            type={typeMenu.mealType}
+            menu={typeMenu.menu}
+          />
+        ))}
     </TodayMenuWrapper>
   );
 };

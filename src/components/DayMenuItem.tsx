@@ -6,7 +6,7 @@ const DayMenuItem = ({ type, menu }: MenuItemProps) => {
   return (
     <DayMenuItemWrapper>
       <Type>{changeMealType(type)}</Type>
-      <Menu>{menu}</Menu>
+      {menu}
     </DayMenuItemWrapper>
   );
 };
@@ -21,9 +21,7 @@ const DayMenuItemWrapper = styled.div`
 const Type = styled.div`
   font-weight: bold;
   font-size: 1.2rem;
-  margin-bottom: 0.5rem;
+  margin-bottom: 1rem;
 `;
-
-const Menu = styled.div``;
 
 export default DayMenuItem;

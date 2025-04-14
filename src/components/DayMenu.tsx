@@ -6,15 +6,17 @@ const DayMenu = ({ date, dayOfWeek, menus }: DayMenusProps) => {
   return (
     <DayMenuWrapper>
       <DayMenuTitle>{`${date} (${dayOfWeek})`}</DayMenuTitle>
-      {menus.map(
-        (typeMenu: Pick<MenuProps, "mealType" | "menu">, index: number) => (
-          <DayMenuItem
-            key={index}
-            type={typeMenu.mealType}
-            menu={typeMenu.menu}
-          />
-        )
-      )}
+      {menus
+        .filter((typeMenu) => typeMenu.mealType !== ".")
+        .map(
+          (typeMenu: Pick<MenuProps, "mealType" | "menu">, index: number) => (
+            <DayMenuItem
+              key={index}
+              type={typeMenu.mealType}
+              menu={typeMenu.menu}
+            />
+          )
+        )}
     </DayMenuWrapper>
   );
 };

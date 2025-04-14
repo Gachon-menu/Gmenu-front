@@ -16,6 +16,6 @@ export type TitleMenu =
 
 export type RestaurantId = 1 | 2 | 3 | 4;
 
-export type MealType = "아침" | "점심" | "저녁";
+export type MealType = "아침" | "점심" | "저녁" | ".";
 
 export type RouteLink = "/vision" | "/arm" | "/dormitory" | "/medical" | "/";
